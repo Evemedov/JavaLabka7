@@ -228,14 +228,17 @@ public class MainFrame {
 	}
 	
 	public static void endOfThreadExec(String name) {
-		readys.add(name);
 		if(readys.size() > 3) {
 			for(int i = 0; i < threads.size(); i++) {
 				threads.get(i).interrupt();
 			}
+			
+			label_2.setText(readys.get(0) + ", " + readys.get(1) + ", " + readys.get(2));
+		}
+		else {
+			readys.add(name);
 		}
 		
-		label_2.setText(readys.get(0) + ", " + readys.get(1) + ", " + readys.get(2));;
 	}
 	
 	//Events
